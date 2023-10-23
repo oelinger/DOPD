@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Under Construction</title>
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   body {
-    background-color: #f4f4f4;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    color: #333;
   }
   .container {
     text-align: center;
-    margin-top: 15%;
   }
   h1 {
-    color: #333;
-  }
-  p {
-    color: #666;
+    margin-bottom: 10px;
   }
   .construction-icon {
     font-size: 80px;
+  }
+
+  /* Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #f4f4f4;
+    }
   }
 </style>
 </head>
