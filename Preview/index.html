@@ -5,23 +5,14 @@
 <div id="responseContainer"></div>
 
 <script>
-var xhr = new XMLHttpRequest();
-var url = 'https://worker-hello-world.photodeployment.workers.dev'; // Beispiel-URL, die eine JSON-Antwort liefert
-
-xhr.open('GET', url, true);
-
-xhr.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    var response = JSON.parse(this.responseText);
-    var responseContainer = document.getElementById('responseContainer');
-    responseContainer.innerHTML = "<p><b>User ID:</b> " + response.userId + "</p>" +
-                                  "<p><b>ID:</b> " + response.id + "</p>" +
-                                  "<p><b>Title:</b> " + response.title + "</p>" +
-                                  "<p><b>Body:</b> " + response.body + "</p>";
-  }
-};
-
-xhr.send();
+fetch('https://worker-hello-world.photodeployment.workers.dev')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('responseContainer').innerHTML = data; // Fügt den Inhalt der Antwort in den Container ein
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
 </script>
 
 </body>
