@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "vercel-build": "yarn install && next build",
-    "build": "yarn install && next build",
+    "vercel-build": "next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
