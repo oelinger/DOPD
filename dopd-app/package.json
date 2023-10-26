@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "vercel-build": "next build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -14,8 +13,6 @@
     "next": "14.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "vercel": "^32.5.0",
-    "wrangler": "^3.15.0",
     "yarn": "^1.22.19"
   },
   "devDependencies": {
