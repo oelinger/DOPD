@@ -17,7 +17,8 @@
     "rollup-plugin-inject": "^3.0.2",
     "sourcemap-codec": "^1.4.8",
     "uuid": "^9.0.1",
-    "vercel": "^32.3.0"
+    "vercel": "^32.3.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.7.2",
