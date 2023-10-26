@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/font": "^14.0.0",
     "cloudflare": "^0.0.8",
     "debug": "^4.3.4",
     "next": "14.0.0",
