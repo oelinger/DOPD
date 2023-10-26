@@ -4,14 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "vercel-build": "yarn install && next build",
     "build": "yarn install && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "^14.0.0",
     "cloudflare": "^0.0.8",
-    "debug": "^4.3.4",
     "next": "14.0.0",
     "react": "^18",
     "react-dom": "^18",
