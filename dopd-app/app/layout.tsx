@@ -4,6 +4,8 @@ import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
+export const runtime = 'edge';
+
 export const metadata: Metadata = {
   title: 'D.O.P.D. - Daniel Oelinger - Photography & Design',
   description: 'D.O.P.D. nimmt sich Photographie, Grafik-, Web- und UX-Design an. Mit Liebe zum Detail entstehen hier Werke mit Wert und Nutzen. Kontaktieren Sie uns jetzt!',
