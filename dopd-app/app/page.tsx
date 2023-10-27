@@ -11,7 +11,7 @@ export default function Home() {
                     vorbei!
                     <br/>
                     <br/>
-                    <a href="mailto:office@oelinger.com">Schreibe eine Mail 📧"</a>
+                    <a href='mailto:office@oelinger.com'>Schreibe eine Mail 📧</a>
                 </p>
             </div>
         </main>
