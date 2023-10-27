@@ -1,4 +1,5 @@
-import {Button} from "@nextui-org/react";
+import React from "react";
+import ButtonMailto from "@/app/components/ButtonMailto";
 
 export const runtime = 'edge';
 
@@ -11,7 +12,7 @@ export default function Home() {
                     bei D.O.P.D.</h1>
                 <p className="text-2xl">Diese Seite befindet sich derzeit im Aufbau. Bitte schauen Sie in Kürze wieder
                     vorbei!</p>
-                <Button href={{mailto:"office@oelinger.at"}}>📧 Kontakt: office@oelinger.at</Button>
+                <ButtonMailto mailto="mailto:office@oelinger.com" label="Schreib eine Mail 📧" />
             </div>
         </main>
     )
