@@ -7,7 +7,7 @@ export default function Home() {
                 <div className='text-8xl mb-8'>&#x1F6A7;</div>
                 <h1 className="mb-3 text-3xl font-semibold">Willkommen
                     bei D.O.P.D.</h1>
-                <p className="text-2xl">Diese Seite befindet sich derzeit im Aufbau. Bitte schauen Sie in Kürze wieder
+                <p className="text-2xl">Diese Seite befindet sich derzeit im Aufbau. Bitte schaue in Kürze wieder
                     vorbei!
                     <br/>
                     <br/>
