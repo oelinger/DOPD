@@ -11,7 +11,8 @@ export default function Home() {
                     vorbei!
                     <br/>
                     <br/>
-                    <a href='mailto:office@oelinger.com'>Schreibe eine Mail 📧</a>
+                    <a className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                       href='mailto:office@oelinger.com'>Schreibe eine Mail 📧</a>
                 </p>
             </div>
         </main>
