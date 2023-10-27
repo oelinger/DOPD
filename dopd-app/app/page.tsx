@@ -1,13 +1,15 @@
-import Image from 'next/image'
 export const runtime = 'edge';
 
 export default function Home() {
     return (
-            <main className="container p-4 text-center">
-                <div className="construction-icon text-6xl mb-4">&#x1F6A7;</div>
-                <h1 className="text-2xl font-bold mb-4">Willkommen bei D.O.P.D.</h1>
-                <p className="text-lg">Diese Seite befindet sich derzeit im Aufbau. Bitte schauen Sie in Kürze wieder
+        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+            <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+                <div className='text-2xl'>&#x1F6A7;</div>
+                <h1 className="mb-3 text-2xl font-semibold">Willkommen
+                    bei D.O.P.D.</h1>
+                <p className="text-3xl font-bold underline">Diese Seite befindet sich derzeit im Aufbau. Bitte schauen Sie in Kürze wieder
                     vorbei!</p>
+            </div>
         </main>
     )
 }

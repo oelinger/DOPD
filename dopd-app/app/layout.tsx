@@ -1,6 +1,6 @@
-import type { Metadata } from 'next'
+import type { Metadata } from 'next';
+import './globals.css';
 import {Providers} from "./providers";
-import './globals.css'
 
 export const runtime = 'edge';
 
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de-AT" className='dark'>
-      <body>
+      <body style={{height: "100vh", display: "flex", alignItems: "center", textAlign: "center" }}>
         <Providers>
           {children}
         </Providers>
