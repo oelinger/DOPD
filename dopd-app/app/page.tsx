@@ -1,5 +1,4 @@
 import React from "react";
-import ButtonMailto from "@/app/components/ButtonMailto";
 
 export const runtime = 'edge';
 
@@ -12,7 +11,7 @@ export default function Home() {
                     bei D.O.P.D.</h1>
                 <p className="text-2xl">Diese Seite befindet sich derzeit im Aufbau. Bitte schauen Sie in Kürze wieder
                     vorbei!</p>
-                <ButtonMailto mailto="mailto:office@oelinger.com" label="Schreib eine Mail 📧" />
+                <a href="mailto:office@oelinger.com">Schreibe eine Mail 📧"</a>
             </div>
         </main>
     )
