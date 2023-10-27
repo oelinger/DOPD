@@ -10,8 +10,11 @@ export default function Home() {
                 <h1 className="mb-3 text-3xl font-semibold">Willkommen
                     bei D.O.P.D.</h1>
                 <p className="text-2xl">Diese Seite befindet sich derzeit im Aufbau. Bitte schauen Sie in Kürze wieder
-                    vorbei!</p>
-                <a href="mailto:office@oelinger.com">Schreibe eine Mail 📧"</a>
+                    vorbei!
+                    <br/>
+                    <br/>
+                    <a href="mailto:office@oelinger.com">Schreibe eine Mail 📧"</a>
+                </p>
             </div>
         </main>
     )
