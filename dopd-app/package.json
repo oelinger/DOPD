@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.1.13",
     "cloudflare": "^0.0.8",
+    "framer-motion": "^10.16.4",
     "next": "14.0.0",
     "react": "^18",
     "react-dom": "^18",
