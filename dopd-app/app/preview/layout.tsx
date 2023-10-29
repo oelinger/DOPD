@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import './globals.css';
-import {Providers} from "./providers";
+import 'normalize.css/normalize.css';
+import '../globals.css';
+import {Providers} from "@/app/providers";
 import React from "react";
 
-export const runtime = 'edge';
+//export const runtime = 'edge';
 
 export const metadata: Metadata = {
   title: 'D.O.P.D. - Daniel Oelinger - Photography & Design',
@@ -17,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de-AT" className='dark'>
-      <body style={{height: "100vh", display: "flex", alignItems: "center", textAlign: "center" }}>
+      <body>
         <Providers>
           {children}
         </Providers>
