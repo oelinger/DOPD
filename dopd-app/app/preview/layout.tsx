@@ -19,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang="de-AT" className='dark'>
       <body>
-        <Providers>
-          {children}
-        </Providers>
+          <main>
+            <Providers>
+              {children}
+            </Providers>
+          </main>
       </body>
     </html>
   )

@@ -17,10 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de-AT" className='dark'>
-      <body style={{height: "100vh", display: "flex", alignItems: "center", textAlign: "center" }}>
-        <Providers>
-          {children}
-        </Providers>
+      <body>
+        <main>
+            <Providers>
+              {children}
+            </Providers>
+        </main>
       </body>
     </html>
   )
