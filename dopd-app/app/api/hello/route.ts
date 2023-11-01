@@ -1,8 +1,8 @@
-import {cookies} from 'next/headers';
+import {cookies} from "next/headers";
 
 export const runtime = 'edge';
 
-export async function GET(request: Request) {
+export async function GET() {
     const cookieStore = cookies();
     const token = cookieStore.get('token');
 
