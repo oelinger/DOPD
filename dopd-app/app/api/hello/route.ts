@@ -1,4 +1,4 @@
-import { cookies } from 'next/headers';
+import {cookies} from 'next/headers';
 
 export const runtime = 'edge';
 
@@ -8,6 +8,6 @@ export async function GET(request: Request) {
 
     return new Response('Hello, Next.js!', {
         status: 200,
-        headers: { 'Set-Cookie': `token=${token}` },
+        headers: {'Set-Cookie': `token=${token}`},
     });
 }
