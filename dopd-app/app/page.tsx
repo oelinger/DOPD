@@ -5,7 +5,6 @@ export const runtime = 'edge';
 
 const style = StyleX.create({
     container: {
-        fontFamily: 'Arial',
         display: 'flex',
         minHeight: '100svh',
         flexDirection: 'column',
@@ -14,23 +13,39 @@ const style = StyleX.create({
         padding: '8px',
         textAlign: 'center',
     },
+    inner: {
+        zIndex: 10,
+        maxWidth: '50rem',
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        fontSize: '3ch',
+    },
+    icon: {
+        fontSize: '8ch',
+        marginBottom: '1rem',
+    },
+    headline: {
+        marginBottom: '1rem',
+        fontSize: '3ch',
+        fontWeight: '600',
+    }
 });
 
 export default function Home() {
     return (
-        <div {...StyleX.props(style.container)}>
-            <div className="z-10 max-w-2xl w-full items-center justify-between text-sm">
-                <div className='text-8xl mb-8'>&#x1F6A7;</div>
-                <h1 className="mb-3 text-3xl font-semibold">Willkommen
-                    bei D.O.P.D.</h1>
-                <p className="text-2xl">Diese Seite befindet sich derzeit im Aufbau. Bitte schaue in Kürze wieder
-                    vorbei!
-                    <br/>
-                    <br/>
-                    <MailtoButton className="text-sm md:text-md" email={"office@oelinger.at"}
-                                  label={"Schreibe eine E-Mail!"}/>
-                </p>
+            <div {...StyleX.props(style.container)}>
+                <div {...StyleX.props(style.inner)}>
+                    <div {...StyleX.props(style.icon)}>&#x1F6A7;</div>
+                    <h1 {...StyleX.props(style.headline)}>Willkommen
+                        bei D.O.P.D.</h1>
+                    <p>Diese Seite befindet sich derzeit im Aufbau. Bitte schaue in Kürze wieder
+                        vorbei!
+                        <br/>
+                        <br/>
+                        <MailtoButton email={"office@oelinger.at"} label={"Schreibe eine E-Mail!"}/>
+                    </p>
+                </div>
             </div>
-        </div>
     )
 }

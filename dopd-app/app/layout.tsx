@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 import {Providers} from "./providers";
 import React from "react";
+import * as StyleX from '@stylexjs/stylex';
 
 export const runtime = 'edge';
 
@@ -10,13 +11,20 @@ export const metadata: Metadata = {
     description: 'D.O.P.D. nimmt sich Photographie, Grafik-, Web- und UX-Design an. Mit Liebe zum Detail entstehen hier Werke mit Wert und Nutzen. Kontaktieren Sie uns jetzt!',
 }
 
+const style = StyleX.create({
+    layout: {
+        fontFamily: 'system-ui, sans-serif, serif, Arial',
+        fontWeight: '400',
+    }
+});
+
 export default function RootLayout({
                                        children,
                                    }: {
     children: React.ReactNode
 }) {
     return (
-            <html lang="de-AT" className='dark'>
+            <html lang="de-AT" {...StyleX.props(style.layout)}>
             <body>
             <main>
                 <Providers>
