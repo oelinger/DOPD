@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@stylexjs/stylex": "^0.3.0",
+    "@stylexjs/open-props": "^0.3.0",
     "@nextui-org/react": "^2.1.13",
     "cloudflare": "^0.0.8",
     "framer-motion": "^10.16.4",
@@ -22,6 +24,9 @@
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.7.2",
     "@fullhuman/postcss-purgecss": "^5.0.0",
+    "@stylexjs/babel-plugin": "^0.3.0",
+    "@stylexjs/eslint-plugin": "^0.3.0",
+    "@stylexjs/nextjs-plugin": "^0.3.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
