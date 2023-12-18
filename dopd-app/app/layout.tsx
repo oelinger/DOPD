@@ -3,6 +3,7 @@ import './globals.css';
 import {Providers} from "./providers";
 import React from "react";
 import * as StyleX from '@stylexjs/stylex';
+import Header from "@/app/components/Header/Header";
 
 export const runtime = 'edge';
 
@@ -31,14 +32,15 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-            <html lang="de-AT" {...StyleX.props(style.layout)}>
-            <body>
-            <main>
-                <Providers>
-                    {children}
-                </Providers>
-            </main>
-            </body>
-            </html>
+        <html lang="de-AT" {...StyleX.props(style.layout)}>
+        <body>
+        <main>
+            <Providers>
+                <Header/>
+                {children}
+            </Providers>
+        </main>
+        </body>
+        </html>
     )
 }
