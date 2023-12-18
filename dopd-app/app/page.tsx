@@ -18,6 +18,7 @@ const style = StyleX.create({
         zIndex: 10,
         maxWidth: '50rem',
         width: '100%',
+        margin: 'auto',
         alignItems: 'center',
         justifyContent: 'space-between',
         fontSize: '3ch',
