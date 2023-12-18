@@ -10,6 +10,6 @@ const style = StyleX.create({
     },
 });
 
-export const DOPDLogo() => {
+export const DOPDLogo = () => {
     return <img {...StyleX.props(style.logo)} alt={"D.O.P.D. - Logo"} src={"/images/DOPD-logo.png"} width={1048}/>;
 }
