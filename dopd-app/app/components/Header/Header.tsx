@@ -1,5 +1,5 @@
 'use client'
-import {Navbar, NavbarBrand} from "@nextui-org/react";
+import {Navbar, NavbarBrand} from "@nextui-org/navbar";
 import {DOPDLogo} from "@/app/components/Logo/DOPDLogo";
 
 export const runtime = 'edge';
