@@ -15,6 +15,13 @@ const style = StyleX.create({
     layout: {
         fontFamily: 'system-ui, sans-serif, serif, Arial',
         fontWeight: '400',
+        fontSize: '1.5ch',
+        '@media screen and (min-width: 768px)': {
+            fontSize: '1.75ch',
+        },
+        '@media screen and (min-width: 1024px)': {
+            fontSize: '2ch',
+        },
     }
 });
 
