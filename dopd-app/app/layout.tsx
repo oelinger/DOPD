@@ -3,7 +3,6 @@ import './globals.css';
 import {Providers} from "./providers";
 import React from "react";
 import * as StyleX from '@stylexjs/stylex';
-import Header from "@/app/components/Header/Header";
 
 export const runtime = 'edge';
 
@@ -36,7 +35,6 @@ export default function RootLayout({
         <body>
         <main>
             <Providers>
-                <Header/>
                 {children}
             </Providers>
         </main>
