@@ -35,6 +35,7 @@ const style = StyleX.create({
 export default function Home() {
     return (
         <div {...StyleX.props(style.container)}>
+            <Header/>
             <div {...StyleX.props(style.inner)}>
                 <div {...StyleX.props(style.icon)}>&#x1F6A7;</div>
                 <h1 {...StyleX.props(style.headline)}>Willkommen
