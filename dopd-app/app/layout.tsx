@@ -1,15 +1,17 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import './globals.css';
-import {Providers} from "./providers";
-import React from "react";
+import { Providers } from './providers';
+import React from 'react';
 import * as StyleX from '@stylexjs/stylex';
+import Header from '@/app/components/Header/Header';
 
 export const runtime = 'edge';
 
 export const metadata: Metadata = {
     title: 'D.O.P.D. - Daniel Oelinger - Photography & Design',
-    description: 'D.O.P.D. nimmt sich Photographie, Grafik-, Web- und UX-Design an. Mit Liebe zum Detail entstehen hier Werke mit Wert und Nutzen. Kontaktieren Sie uns jetzt!',
-}
+    description:
+        'D.O.P.D. nimmt sich Photographie, Grafik-, Web- und UX-Design an. Mit Liebe zum Detail entstehen hier Werke mit Wert und Nutzen. Kontaktieren Sie uns jetzt!',
+};
 
 const style = StyleX.create({
     layout: {
@@ -22,23 +24,18 @@ const style = StyleX.create({
         '@media screen and (min-width: 1024px)': {
             fontSize: '2ch',
         },
-    }
+    },
 });
 
-export default function RootLayout({
-                                       children,
-                                   }: {
-    children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="de-AT" {...StyleX.props(style.layout)}>
-        <body>
-        <main>
-            <Providers>
-                {children}
-            </Providers>
-        </main>
-        </body>
+        <html lang='de-AT' {...StyleX.props(style.layout)}>
+            <body>
+                <Header />
+                <main>
+                    <Providers>{children}</Providers>
+                </main>
+            </body>
         </html>
-    )
+    );
 }
