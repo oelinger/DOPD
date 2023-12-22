@@ -9,6 +9,8 @@
     "lint": "next lint",
     "stylelint-check": "stylelint-config-prettier-check"
   },
+  "author": "Daniel Oelinger",
+  "license": "MIT",
   "dependencies": {
     "@nextui-org/react": "^2.1.13",
     "@stylexjs/open-props": "^0.3.0",
