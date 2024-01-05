@@ -27,7 +27,7 @@ const style = StyleX.create({
     },
     icon: {
         fontSize: '8ch',
-        marginBottom: '1rem',
+        marginBottom: '0.5rem',
     },
     headline: {
         fontSize: '3.5ch',
@@ -58,11 +58,7 @@ export default function Home() {
                 <div {...StyleX.props(style.content)}>
                     <div {...StyleX.props(style.icon)}>&#x1F6A7;</div>
                     <h1 {...StyleX.props(style.headline)}>Willkommen bei D.O.P.D.</h1>
-                    <p>
-                        Diese Seite befindet sich derzeit im Aufbau.
-                        <br />
-                        Bitte schaue in Kürze wieder vorbei!
-                    </p>
+                    <p>Diese Seite befindet sich derzeit im Aufbau. Bitte schaue in Kürze wieder vorbei!</p>
                     <MailtoButton email={'office@oelinger.at'} label={'Schreibe eine E-Mail!'} />
                 </div>
             </div>
