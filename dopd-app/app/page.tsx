@@ -56,8 +56,8 @@ export default function Home() {
         <div {...StyleX.props(style.container)}>
             <div {...StyleX.props(style.inner)}>
                 <div {...StyleX.props(style.content)}>
-                    <div {...StyleX.props(style.icon)}>&#x1F6A7;</div>
                     <h1 {...StyleX.props(style.headline)}>Willkommen bei D.O.P.D.</h1>
+                    <div {...StyleX.props(style.icon)}>&#x1F6A7;</div>
                     <p>Diese Seite befindet sich derzeit im Aufbau. Bitte schaue in Kürze wieder vorbei!</p>
                     <MailtoButton email={'office@oelinger.at'} label={'Schreibe eine E-Mail!'} />
                 </div>
