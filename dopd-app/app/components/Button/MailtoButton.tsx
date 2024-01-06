@@ -8,7 +8,6 @@ import * as StyleX from '@stylexjs/stylex';
 const style = StyleX.create({
     base: {
         minHeight: '4rem',
-        fontFamily: 'Arial',
         fontSize: '1.5ch',
         fontWeight: '600',
         ':hover': {

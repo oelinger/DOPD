@@ -1,5 +1,6 @@
 import MailtoButton from '@/app/components/Button/MailtoButton';
 import * as StyleX from '@stylexjs/stylex';
+import { Image } from '@nextui-org/image';
 
 export const runtime = 'edge';
 
@@ -39,28 +40,36 @@ const style = StyleX.create({
         alignItems: 'center',
         justifyContent: 'center',
         gap: '1rem',
-        aspectRatio: '3/2',
         margin: '1rem 0',
         fontWeight: '400',
         lineHeight: '1.5',
     },
-    img: {
+    'img': {
         width: '100%',
         height: '100%',
         objectFit: 'cover',
     },
 });
 
+const maintenance: boolean = true;
+
 export default function Home() {
     return (
         <div {...StyleX.props(style.container)}>
             <div {...StyleX.props(style.inner)}>
-                <div {...StyleX.props(style.content)}>
-                    <h1 {...StyleX.props(style.headline)}>Willkommen bei D.O.P.D.</h1>
-                    <div {...StyleX.props(style.icon)}>&#x1F6A7;</div>
-                    <p>Diese Seite befindet sich derzeit im Aufbau. Bitte schaue in Kürze wieder vorbei!</p>
-                    <MailtoButton email={'office@oelinger.at'} label={'Schreibe eine E-Mail!'} />
-                </div>
+                <h1 {...StyleX.props(style.headline)}>Willkommen bei D.O.P.D.</h1>
+                {maintenance ? (
+                    <div {...StyleX.props(style.content)}>
+                        <div {...StyleX.props(style.icon)}>&#x1F6A7;</div>
+                        <p>Diese Seite befindet sich derzeit im Aufbau. Bitte schaue in Kürze wieder vorbei!</p>
+                        <MailtoButton email={'office@oelinger.at'} label={'Schreibe eine E-Mail!'} />
+                    </div>
+                ) : (
+                    <a {...StyleX.props(style.content)} href={'#'}>
+                        <Image isZoomed src={'/images/_MG_0682.jpg'} alt={'D.O.P.D. - Logo'} />
+                        <p>Nature</p>
+                    </a>
+                )}
             </div>
         </div>
     );
