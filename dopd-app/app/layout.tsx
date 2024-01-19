@@ -25,12 +25,17 @@ const style = StyleX.create({
             fontSize: '2ch',
         },
     },
+    body: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+    },
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang='de-AT' {...StyleX.props(style.layout)}>
-            <body>
+            <body {...StyleX.props(style.body)}>
                 <Header />
                 <main>
                     <Providers>{children}</Providers>
