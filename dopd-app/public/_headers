@@ -1,2 +1,4 @@
 /*
-  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Origin: "r2.oelinger.at"
+  Access-Control-Allow-Methods: GET, POST, PUT
+  Access-Control-Allow-Headers: Content-Type
