@@ -4,6 +4,7 @@ import { Providers } from './providers';
 import React from 'react';
 import * as StyleX from '@stylexjs/stylex';
 import Header from '@/app/components/Header/Header';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export const runtime = 'edge';
 

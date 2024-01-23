@@ -34,7 +34,14 @@ const style = StyleX.create({
         fontSize: '3.5ch',
         fontWeight: '600',
     },
+    contentWrap: {
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '1rem',
+        margin: '1rem 0',
+    },
     content: {
+        position: 'relative',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -43,11 +50,6 @@ const style = StyleX.create({
         margin: '1rem 0',
         fontWeight: '400',
         lineHeight: '1.5',
-    },
-    'img': {
-        width: '100%',
-        height: '100%',
-        objectFit: 'cover',
     },
 });
 
@@ -65,10 +67,19 @@ export default function Home() {
                         <MailtoButton email={'office@oelinger.at'} label={'Schreibe eine E-Mail!'} />
                     </div>
                 ) : (
-                    <a {...StyleX.props(style.content)} href={'#'}>
-                        <Image isZoomed src={'/images/_MG_0682.jpg'} alt={'D.O.P.D. - Logo'} />
-                        <p>Nature</p>
-                    </a>
+                    <div {...StyleX.props(style.contentWrap)}>
+                        <a {...StyleX.props(style.content)} href={'#'}>
+                            <Image isZoomed src={'https://r2.oelinger.at/_MG_6258.jpeg'} alt={'D.O.P.D. - Logo'} />
+                            <i className={'bi bi-tsunami'} />
+                            <p>Nature</p>
+                        </a>
+
+                        <a {...StyleX.props(style.content)} href={'#'}>
+                            <Image isZoomed src={'/images/DOPD-logo.png'} alt={'D.O.P.D. - Logo'} />
+                            <i className={'bi bi-building'} />
+                            <p>Urban</p>
+                        </a>
+                    </div>
                 )}
             </div>
         </div>
