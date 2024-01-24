@@ -53,7 +53,7 @@ const style = StyleX.create({
     },
 });
 
-const maintenance: boolean = true;
+const maintenance: boolean = false;
 
 export default function Home() {
     return (
