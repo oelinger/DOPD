@@ -69,13 +69,25 @@ export default function Home() {
                 ) : (
                     <div {...StyleX.props(style.contentWrap)}>
                         <a {...StyleX.props(style.content)} href={'#'}>
-                            <Image isZoomed src={'https://r2.oelinger.at/_MG_6258.jpeg'} alt={'D.O.P.D. - Logo'} />
+                            <Image
+                                isZoomed
+                                src={'https://r2.oelinger.at/_MG_6258.jpeg'}
+                                width='500'
+                                height='200'
+                                alt={'D.O.P.D. - Logo'}
+                            />
                             <i className={'bi bi-tsunami'} />
                             <p>Nature</p>
                         </a>
 
                         <a {...StyleX.props(style.content)} href={'#'}>
-                            <Image isZoomed src={'/images/DOPD-logo.png'} alt={'D.O.P.D. - Logo'} />
+                            <Image
+                                isZoomed
+                                src={'https://r2.oelinger.at/_MG_6258.jpeg'}
+                                width='500'
+                                height='200'
+                                alt={'D.O.P.D. - Logo'}
+                            />
                             <i className={'bi bi-building'} />
                             <p>Urban</p>
                         </a>

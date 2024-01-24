@@ -4,6 +4,7 @@ import { Providers } from './providers';
 import React from 'react';
 import * as StyleX from '@stylexjs/stylex';
 import Header from '@/app/components/Header/Header';
+// import Footer from "@/app/components/Footer/Footer";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export const runtime = 'edge';
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <main>
                     <Providers>{children}</Providers>
                 </main>
+                {/*<Footer />*/}
             </body>
         </html>
     );
