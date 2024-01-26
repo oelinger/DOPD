@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "stylelint-check": "stylelint-config-prettier-check"
+    "lint": "next lint"
   },
   "author": "Daniel Oelinger",
   "license": "MIT",
@@ -27,7 +26,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-router-dom": "^6.17.0",
-    "yarn": "^1.22.19"
+    "typewriter-effect": "^2.21.0",
+    "yarn": "^1.22.21"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.7.2",
