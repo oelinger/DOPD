@@ -114,7 +114,7 @@ export default function Imprint() {
                             <p>
                                 Bei Fragen nehmen Sie gerne Kontakt zu uns auf. Hier können Sie auch direkt Einsicht in
                                 unsere&nbsp;
-                                <Link href={'/privacy'}>Datenschutzbestimmungen</Link>
+                                <Link href={'/privacy'}>Daten&shy;schutz&shy;bestimmungen</Link>
                                 &nbsp;nehmen.
                             </p>
                         </div>
