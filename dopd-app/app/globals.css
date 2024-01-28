@@ -40,3 +40,24 @@ body {
 body > div {
     flex: 1 1 0;
 }
+
+h2 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-top: 1rem;
+}
+
+p > a {
+    text-decoration: underline;
+}
+
+p > a:hover {
+    text-decoration: none;
+}
