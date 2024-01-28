@@ -2,7 +2,6 @@
 import MailtoButton from '@/app/components/Button/MailtoButton';
 import * as StyleX from '@stylexjs/stylex';
 import { Image } from '@nextui-org/image';
-import { Button } from '@nextui-org/button';
 import Typewriter from 'typewriter-effect';
 
 export const runtime = 'edge';
