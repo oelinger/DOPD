@@ -12,6 +12,7 @@ const style = StyleX.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        gap: '0.5rem',
     },
     link: {
         color: {
