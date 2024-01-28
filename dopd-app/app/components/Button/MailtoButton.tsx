@@ -13,6 +13,7 @@ const style = StyleX.create({
         ':hover': {
             backgroundColor: 'rgba(0,0,0,0.2)',
             '@media (prefers-color-scheme: dark)': {
+                color: '#fff',
                 backgroundColor: 'rgba(255,255,255,0.2)',
             },
         },
