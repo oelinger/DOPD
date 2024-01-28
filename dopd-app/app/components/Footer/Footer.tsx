@@ -31,11 +31,15 @@ const style = StyleX.create({
 export default function Footer() {
     const pathname = usePathname();
     const imprintPath = '/imprint';
+    const privacyPath = '/privacy';
 
     return (
         <footer {...StyleX.props(style.footer)}>
             <Link href={imprintPath} {...StyleX.props(style.link, pathname === imprintPath ? style.active : null)}>
                 Impressum
+            </Link>
+            <Link href={privacyPath} {...StyleX.props(style.link, pathname === privacyPath ? style.active : null)}>
+                Datenschutz
             </Link>
         </footer>
     );

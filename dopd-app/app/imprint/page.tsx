@@ -52,7 +52,7 @@ const style = StyleX.create({
         flexDirection: 'column',
         alignItems: 'flex-start',
         gap: '1.25rem',
-        textAlign: 'center',
+        textAlign: 'left',
     },
 });
 
@@ -121,12 +121,12 @@ export default function Imprint() {
                                 geschlechtsneutrale Differenzierung, sondern wird ausschließlich die männliche Form
                                 verwendet. Selbstverständlich ist ihre Ausrichtung in jedem Fall geschlechtsunabhängig.
                             </p>
-                            {/*<p>*/}
-                            {/*    Bei Fragen nehmen Sie gerne Kontakt zu uns auf. Hier können Sie auch direkt Einsicht in*/}
-                            {/*    unsere&nbsp;*/}
-                            {/*    <a href='/privacy'>Datenschutzbestimmungen</a>*/}
-                            {/*    &nbsp;nehmen.*/}
-                            {/*</p>*/}
+                            <p>
+                                Bei Fragen nehmen Sie gerne Kontakt zu uns auf. Hier können Sie auch direkt Einsicht in
+                                unsere&nbsp;
+                                <a href='/privacy'>Datenschutzbestimmungen</a>
+                                &nbsp;nehmen.
+                            </p>
                         </div>
                     </div>
                 </div>
