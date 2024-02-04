@@ -1,7 +1,7 @@
-import Image, { ImageProps } from 'next/image';
 import React from 'react';
+import Image, { ImageProps } from 'next/image';
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
 interface DOPDImageProps extends ImageProps {
     variant?: string;
@@ -9,5 +9,5 @@ interface DOPDImageProps extends ImageProps {
 }
 
 export default function DOPDImage(props: DOPDImageProps) {
-    return <Image src={props.src} alt={props.alt} width={props.width} height={props.height}></Image>;
+    return <Image src={props.src} alt={props.alt} width={props.width} height={props.height} />;
 }
