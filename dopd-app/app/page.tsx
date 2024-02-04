@@ -3,6 +3,7 @@ import MailtoButton from '@/app/components/Button/MailtoButton';
 import * as StyleX from '@stylexjs/stylex';
 import { Image } from '@nextui-org/image';
 import Typewriter from 'typewriter-effect';
+import imagePath from '@/app/utils/imagePath';
 
 export const runtime = 'edge';
 
@@ -62,7 +63,7 @@ const style = StyleX.create({
         justifyContent: 'center',
         height: '70vh',
         width: '100%',
-        backgroundImage: 'url(/images/placeholder.jpeg)',
+        backgroundImage: `url(/images/placeholder.jpeg)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -117,8 +118,8 @@ export default function Home() {
                                 <a {...StyleX.props(style.content)} href={'#'}>
                                     <Image
                                         isZoomed
-                                        fallbackSrc={'/images/placeholder.jpeg'}
-                                        src={'/images/placeholder.jpeg'}
+                                        fallbackSrc={'image/placeholder.jpeg'}
+                                        src={imagePath('motorsport.jpg')}
                                         width='500'
                                         height='200'
                                         alt={'D.O.P.D. - Logo'}
@@ -130,8 +131,8 @@ export default function Home() {
                                 <a {...StyleX.props(style.content)} href={'#'}>
                                     <Image
                                         isZoomed
-                                        fallbackSrc={'/images/placeholder.jpeg'}
-                                        src={'/images/placeholder.jpeg'}
+                                        fallbackSrc={'image/placeholder.jpeg'}
+                                        src={imagePath('placeholder.jpeg')}
                                         width='500'
                                         height='200'
                                         alt={'D.O.P.D. - Logo'}
