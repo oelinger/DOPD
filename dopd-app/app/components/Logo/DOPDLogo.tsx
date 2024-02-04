@@ -18,7 +18,6 @@ export const DOPDLogo = () => {
             {...StyleX.props(style.logo)}
             alt={'D.O.P.D. - Logo'}
             src={imagePath('DOPD-logo.png')}
-            fallbackSrc={'/images/DOPD-logo.png'}
             width={140}
             height={45}
         />

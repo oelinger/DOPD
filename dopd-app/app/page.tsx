@@ -70,7 +70,7 @@ const style = StyleX.create({
 });
 
 const maintenance: boolean = process.env.NODE_ENV === 'production';
-// const maintenance: boolean = false;
+// const maintenance: boolean = true;
 
 const heroImage: ImageObject = {
     path: 'placeholder.jpeg',
