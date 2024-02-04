@@ -73,7 +73,7 @@ const maintenance: boolean = process.env.NODE_ENV === 'production';
 // const maintenance: boolean = true;
 
 const heroImage: ImageObject = {
-    path: 'placeholder.jpeg',
+    imageName: 'placeholder.jpeg',
     alt: 'D.O.P.D. - Hero Image',
     width: 1000,
     height: 500,
@@ -115,7 +115,7 @@ export default function Home() {
                             <div {...StyleX.props(style.contentWrap)}>
                                 <a {...StyleX.props(style.content)} href={'#'}>
                                     <DOPDImage
-                                        fallbackSrc={'image/placeholder.jpeg'}
+                                        fallbackSrc={'placeholder.jpeg'}
                                         src={imagePath('motorsport.jpg')}
                                         width='500'
                                         height='200'
@@ -127,7 +127,7 @@ export default function Home() {
 
                                 <a {...StyleX.props(style.content)} href={'#'}>
                                     <DOPDImage
-                                        fallbackSrc={'image/placeholder.jpeg'}
+                                        fallbackSrc={'placeholder.jpeg'}
                                         src={imagePath('placeholder.jpeg')}
                                         width='500'
                                         height='200'

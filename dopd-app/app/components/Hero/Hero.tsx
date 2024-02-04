@@ -8,7 +8,7 @@ import imagePath from '@/app/utils/imagePath';
 export const runtime = 'edge';
 
 export interface ImageObject {
-    path: string;
+    imageName: string;
     alt: string;
     width: number;
     height: number;
@@ -44,7 +44,7 @@ export default function Hero(props: { image: ImageObject; content: React.JSX.Ele
             {props.content}
             <DOPDImage
                 variant='hero'
-                src={imagePath(props.image.path)}
+                src={imagePath(props.image.imageName)}
                 alt={props.image.alt}
                 width={props.image.width}
                 height={props.image.height}
