@@ -117,8 +117,8 @@ export default function Home() {
                                     <DOPDImage
                                         fallbackSrc={'placeholder.jpeg'}
                                         src={imagePath('motorsport.jpg')}
-                                        width='500'
-                                        height='200'
+                                        width={500}
+                                        height={200}
                                         alt={'D.O.P.D. - Logo'}
                                     />
                                     <i className={'bi bi-tsunami'} />
