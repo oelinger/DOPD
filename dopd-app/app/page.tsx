@@ -1,9 +1,10 @@
 'use client';
 import MailtoButton from '@/app/components/Button/MailtoButton';
 import * as StyleX from '@stylexjs/stylex';
-import { Image } from '@nextui-org/image';
+import DOPDImage from '@/app/components/Image/DOPDImage';
 import Typewriter from 'typewriter-effect';
 import imagePath from '@/app/utils/imagePath';
+import React from 'react';
 
 export const runtime = 'edge';
 
@@ -116,7 +117,7 @@ export default function Home() {
                         <div>
                             <div {...StyleX.props(style.contentWrap)}>
                                 <a {...StyleX.props(style.content)} href={'#'}>
-                                    <Image
+                                    <DOPDImage
                                         isZoomed
                                         fallbackSrc={'image/placeholder.jpeg'}
                                         src={imagePath('motorsport.jpg')}
@@ -129,7 +130,7 @@ export default function Home() {
                                 </a>
 
                                 <a {...StyleX.props(style.content)} href={'#'}>
-                                    <Image
+                                    <DOPDImage
                                         isZoomed
                                         fallbackSrc={'image/placeholder.jpeg'}
                                         src={imagePath('placeholder.jpeg')}
