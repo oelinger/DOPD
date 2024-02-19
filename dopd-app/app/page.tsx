@@ -79,6 +79,13 @@ const heroImage: ImageObject = {
     height: 500,
 };
 
+const heroImage: ImageObject = {
+    path: 'placeholder.jpeg',
+    alt: 'D.O.P.D. - Hero Image',
+    width: 1000,
+    height: 500,
+};
+
 export default function Home() {
     return (
         <div>
