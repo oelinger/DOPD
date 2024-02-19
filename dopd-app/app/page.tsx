@@ -5,6 +5,7 @@ import DOPDImage from '@/app/components/Image/DOPDImage';
 import Typewriter from 'typewriter-effect';
 import imagePath from '@/app/utils/imagePath';
 import React from 'react';
+import Hero, { ImageObject } from '@/app/components/Hero/Hero';
 
 export const runtime = 'edge';
 
@@ -57,18 +58,6 @@ const style = StyleX.create({
         fontWeight: '400',
         lineHeight: '1.5',
     },
-    hero: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '70vh',
-        width: '100%',
-        backgroundImage: `url(/images/placeholder.jpeg)`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-    },
     scrollToFirstButton: {
         position: 'absolute',
         zIndex: 1000,
@@ -81,6 +70,13 @@ const style = StyleX.create({
 });
 
 const maintenance: boolean = process.env.NODE_ENV === 'production';
+
+const heroImage: ImageObject = {
+    path: 'placeholder.jpeg',
+    alt: 'D.O.P.D. - Hero Image',
+    width: 1000,
+    height: 500,
+};
 
 export default function Home() {
     return (
@@ -98,10 +94,10 @@ export default function Home() {
                 </div>
             ) : (
                 <div {...StyleX.props(style.container)}>
-                    <div {...StyleX.props(style.hero)}>
-                        <h1 {...StyleX.props(style.headline)}>Willkommen bei D.O.P.D.</h1>
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            D.O.P.D. steht für&nbsp;
+                    <Hero
+                        image={heroImage}
+                        headline='Willkommen bei D.O.P.D.'
+                        content={
                             <Typewriter
                                 options={{
                                     strings: ['Photographie', 'UX - Design', 'Web - Design', 'Grafik - Design'],
@@ -111,8 +107,8 @@ export default function Home() {
                                     deleteSpeed: 50,
                                 }}
                             />
-                        </div>
-                    </div>
+                        }
+                    />
                     <div {...StyleX.props(style.inner)}>
                         <div>
                             <div {...StyleX.props(style.contentWrap)}>
