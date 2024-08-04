@@ -80,7 +80,8 @@ const style = StyleX.create({
     },
 });
 
-const maintenance: boolean = process.env.NODE_ENV === 'production';
+// const maintenance: boolean = process.env.NODE_ENV === 'production';
+const maintenance: boolean = false;
 
 export default function Home() {
     return (
