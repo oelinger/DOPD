@@ -1,5 +1,5 @@
+import Image, { ImageProps } from 'next/image';
 import React from 'react';
-import Image, { ImageProps } from '@nextui-org/image';
 
 export const runtime = 'edge';
 

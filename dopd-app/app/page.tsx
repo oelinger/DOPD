@@ -119,7 +119,6 @@ export default function Home() {
                             <div {...StyleX.props(style.contentWrap)}>
                                 <a {...StyleX.props(style.content)} href={'#'}>
                                     <DOPDImage
-                                        isZoomed
                                         fallbackSrc={'image/placeholder.jpeg'}
                                         src={imagePath('motorsport.jpg')}
                                         width='500'
@@ -132,7 +131,6 @@ export default function Home() {
 
                                 <a {...StyleX.props(style.content)} href={'#'}>
                                     <DOPDImage
-                                        isZoomed
                                         fallbackSrc={'image/placeholder.jpeg'}
                                         src={imagePath('placeholder.jpeg')}
                                         width='500'
