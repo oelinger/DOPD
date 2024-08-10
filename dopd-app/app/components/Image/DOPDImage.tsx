@@ -6,7 +6,8 @@ export const runtime = 'edge';
 interface DOPDImageProps extends ImageProps {
     src: string;
     alt: string;
-    fallbackSrc: string;
+    fallbackSrc?: string;
+    variant?: string;
 }
 
 export default function DOPDImage(props: DOPDImageProps) {
