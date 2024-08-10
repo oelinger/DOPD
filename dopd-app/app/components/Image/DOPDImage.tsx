@@ -4,6 +4,13 @@ import * as StyleX from '@stylexjs/stylex';
 
 export const runtime = 'edge';
 
+interface DOPDImageProps extends ImageProps {
+    src: string;
+    alt: string;
+    fallbackSrc?: string;
+    variant?: string;
+}
+
 const style = StyleX.create({
     heroImage: {
         position: 'absolute',

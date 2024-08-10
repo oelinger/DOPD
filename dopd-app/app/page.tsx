@@ -69,7 +69,15 @@ const style = StyleX.create({
     },
 });
 
-const maintenance: boolean = process.env.NODE_ENV === 'production';
+// const maintenance: boolean = process.env.NODE_ENV === 'production';
+const maintenance: boolean = false;
+
+const heroImage: ImageObject = {
+    path: 'placeholder.jpeg',
+    alt: 'D.O.P.D. - Hero Image',
+    width: 1000,
+    height: 500,
+};
 
 const heroImage: ImageObject = {
     path: 'placeholder.jpeg',
@@ -114,7 +122,6 @@ export default function Home() {
                             <div {...StyleX.props(style.contentWrap)}>
                                 <a {...StyleX.props(style.content)} href={'#'}>
                                     <DOPDImage
-                                        isZoomed
                                         fallbackSrc={'image/placeholder.jpeg'}
                                         src={imagePath('motorsport.jpg')}
                                         width='500'
@@ -127,7 +134,6 @@ export default function Home() {
 
                                 <a {...StyleX.props(style.content)} href={'#'}>
                                     <DOPDImage
-                                        isZoomed
                                         fallbackSrc={'image/placeholder.jpeg'}
                                         src={imagePath('placeholder.jpeg')}
                                         width='500'
