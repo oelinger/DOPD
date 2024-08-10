@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image, { ImageProps } from 'next/image';
 import React from 'react';
 import * as StyleX from '@stylexjs/stylex';
 
@@ -11,13 +11,12 @@ const style = StyleX.create({
     },
 });
 
-export default function DOPDImage(props: {
-    variant: string | undefined;
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-}) {
+interface DOPDImageProps extends ImageProps {
+    variant?: string;
+    fallbackSrc?: string;
+}
+
+export default function DOPDImage(props: DOPDImageProps) {
     // @ts-ignore
     return (
         <div {...StyleX.props(style.heroImage)}>
