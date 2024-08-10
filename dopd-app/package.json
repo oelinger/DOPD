@@ -24,7 +24,7 @@
     "cloudflare": "^0.0.8",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "framer-motion": "^10.16.4",
+    "framer-motion": "^11.3.24",
     "next": "14.0.0",
     "next-images": "^1.8.5",
     "normalize.css": "^8.0.1",
