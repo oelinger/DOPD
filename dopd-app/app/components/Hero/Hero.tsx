@@ -1,11 +1,11 @@
-// 'use client';
+'use client';
 
 import React from 'react';
 import * as StyleX from '@stylexjs/stylex';
 import DOPDImage from '@/app/components/Image/DOPDImage';
 import imagePath from '@/app/utils/imagePath';
 
-// export const runtime = 'edge';
+export const runtime = 'edge';
 
 export interface ImageObject {
     path: string;
