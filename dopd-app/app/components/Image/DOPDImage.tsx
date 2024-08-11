@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import Image, { ImageProps } from 'next/image';
 
-interface DOPDImageProps extends ImageProps {
-    variant?: string;
-    fallbackSrc?: string | 'images/placeholder.jpeg';
-}
+interface DOPDImageProps extends ImageProps {}
 
 export default function DOPDImage(props: DOPDImageProps) {
+    const fallbackSrc = '/images/placeholder.jpeg';
     const [src, setSrc] = useState(props.src);
 
     const handleError = () => {
-        if (props.fallbackSrc) {
-            setSrc(props.fallbackSrc);
-        }
+        setSrc(fallbackSrc);
     };
 
-    return <Image {...props} alt={props.alt} src={src} onError={handleError}></Image>;
+    // eslint-disable-next-line jsx-a11y/alt-text
+    return <Image {...props} src={src} onError={handleError}></Image>;
 }

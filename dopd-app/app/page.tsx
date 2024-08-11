@@ -6,30 +6,15 @@ import Typewriter from 'typewriter-effect';
 import imagePath from '@/app/utils/imagePath';
 import React from 'react';
 import Hero, { ImageObject } from '@/app/components/Hero/Hero';
+import ContentWrap from '@/app/components/ContentWrap/ContentWrap';
+import Content from '@/app/components/Content/Content';
+import { useRouter } from 'next/navigation';
+import PageContainer from '@/app/components/PageContainer/PageContainer';
+import Inner from '@/app/components/PageContainer/Inner';
 
 export const runtime = 'edge';
 
 const style = StyleX.create({
-    container: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-    },
-    inner: {
-        zIndex: 10,
-        maxWidth: '64rem',
-        width: '100%',
-        margin: 'auto',
-        padding: '0 1rem',
-        '@media screen and (min-width: 1024px)': {
-            padding: '0 1.5rem',
-        },
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        fontSize: '3ch',
-    },
     icon: {
         fontSize: '8ch',
         marginBottom: '0.5rem',
@@ -37,26 +22,6 @@ const style = StyleX.create({
     headline: {
         fontSize: '3.5ch',
         fontWeight: '600',
-    },
-    contentWrap: {
-        display: 'grid',
-        gridTemplateColumns: '1fr',
-        '@media screen and (min-width: 768px)': {
-            gridTemplateColumns: '1fr 1fr',
-        },
-        gap: '1rem',
-        margin: '1rem 0',
-    },
-    content: {
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '1rem',
-        margin: '1rem 0',
-        fontWeight: '400',
-        lineHeight: '1.5',
     },
     scrollToFirstButton: {
         position: 'absolute',
@@ -69,8 +34,7 @@ const style = StyleX.create({
     },
 });
 
-// const maintenance: boolean = process.env.NODE_ENV === 'production';
-const maintenance: boolean = false;
+const maintenance: boolean = process.env.NODE_ENV === 'production';
 
 const heroImage: ImageObject = {
     imageName: 'placeholder.jpeg',
@@ -80,66 +44,68 @@ const heroImage: ImageObject = {
 };
 
 export default function Home() {
+    const router = useRouter();
+
     return (
         <div>
             {maintenance ? (
-                <div {...StyleX.props(style.container)}>
-                    <div {...StyleX.props(style.inner)}>
-                        <div {...StyleX.props(style.content)}>
+                <PageContainer>
+                    <Inner>
+                        <Content>
                             <h1 {...StyleX.props(style.headline)}>Willkommen bei D.O.P.D.</h1>
                             <div {...StyleX.props(style.icon)}>&#x1F6A7;</div>
                             <p>Diese Seite befindet sich derzeit im Aufbau. Bitte schaue in Kürze wieder vorbei!</p>
                             <MailtoButton email={'office@oelinger.at'} label={'Schreibe eine E-Mail!'} />
-                        </div>
-                    </div>
-                </div>
+                        </Content>
+                    </Inner>
+                </PageContainer>
             ) : (
-                <div {...StyleX.props(style.container)}>
+                <PageContainer>
                     <Hero
                         image={heroImage}
                         headline='Willkommen bei D.O.P.D.'
                         content={
-                            <Typewriter
-                                options={{
-                                    strings: ['Photographie', 'UX - Design', 'Web - Design', 'Grafik - Design'],
-                                    autoStart: true,
-                                    loop: true,
-                                    delay: 100,
-                                    deleteSpeed: 50,
-                                }}
-                            />
+                            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                                D.O.P.D. steht für&nbsp;
+                                <Typewriter
+                                    options={{
+                                        strings: ['Photographie', 'UX - Design', 'Web - Design', 'Grafik - Design'],
+                                        autoStart: true,
+                                        loop: true,
+                                        delay: 100,
+                                        deleteSpeed: 50,
+                                    }}
+                                />
+                            </div>
                         }
                     />
-                    <div {...StyleX.props(style.inner)}>
+                    <Inner>
                         <div>
-                            <div {...StyleX.props(style.contentWrap)}>
-                                <a {...StyleX.props(style.content)} href={'#'}>
+                            <ContentWrap>
+                                <Content onClick={() => router.push('/gallery/motorsport')}>
                                     <DOPDImage
-                                        fallbackSrc={'placeholder.jpeg'}
                                         src={imagePath('motorsport.jpg')}
                                         width={500}
                                         height={200}
-                                        alt={'D.O.P.D. - Logo'}
+                                        alt={'Motorsport Gallery'}
                                     />
                                     <i className={'bi bi-tsunami'} />
                                     <p>Nature</p>
-                                </a>
-
-                                <a {...StyleX.props(style.content)} href={'#'}>
+                                </Content>
+                                <Content onClick={() => router.push('/gallery/architecture')}>
                                     <DOPDImage
-                                        fallbackSrc={'placeholder.jpeg'}
-                                        src={imagePath('placeholder.jpeg')}
+                                        src={imagePath('architecture.jpeg')}
                                         width='500'
                                         height='200'
-                                        alt={'D.O.P.D. - Logo'}
+                                        alt={'Architecture Gallery'}
                                     />
                                     <i className={'bi bi-building'} />
                                     <p>Urban</p>
-                                </a>
-                            </div>
+                                </Content>
+                            </ContentWrap>
                         </div>
-                    </div>
-                </div>
+                    </Inner>
+                </PageContainer>
             )}
         </div>
     );
