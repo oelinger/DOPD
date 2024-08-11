@@ -14,7 +14,10 @@ const rootDir = options.unstable_moduleResolution.rootDir ?? __dirname;
 module.exports = stylexPlugin({
     rootDir,
     useCSSLayers: true,
-})({
+});
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
     images: {
         remotePatterns: [
             {
@@ -26,7 +29,7 @@ module.exports = stylexPlugin({
     headers: async () => {
         return [
             {
-                source: 'r2.oelinger.at/(.*)',
+                source: '/r2.oelinger.at/(.*)',
                 headers: [
                     { key: 'Access-Control-Allow-Credentials', value: 'true' },
                     { key: 'Access-Control-Allow-Origin', value: '*' },
@@ -56,4 +59,5 @@ module.exports = stylexPlugin({
             },
         ];
     },
-});
+};
+module.exports = nextConfig;
