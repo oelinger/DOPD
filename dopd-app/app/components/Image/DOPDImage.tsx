@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image, { ImageProps } from 'next/image';
-
-// export const runtime = 'edge';
 
 interface DOPDImageProps extends ImageProps {
     variant?: string;
-    fallbackSrc?: string;
+    fallbackSrc?: string | 'images/placeholder.jpeg';
 }
 
 export default function DOPDImage(props: DOPDImageProps) {
-    return <Image src={props.src} alt={props.alt} width={props.width} height={props.height} />;
+    const [src, setSrc] = useState(props.src);
+
+    const handleError = () => {
+        if (props.fallbackSrc) {
+            setSrc(props.fallbackSrc);
+        }
+    };
+
+    return <Image {...props} alt={props.alt} src={src} onError={handleError}></Image>;
 }
