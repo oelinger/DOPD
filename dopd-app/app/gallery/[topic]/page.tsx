@@ -1,5 +1,5 @@
 'use client';
-import { usePathname } from 'next/navigation';
+import { notFound, usePathname } from 'next/navigation';
 import Hero, { ImageObject } from '@/app/components/Hero/Hero';
 import PageContainer from '@/app/components/PageContainer/PageContainer';
 import Inner from '@/app/components/PageContainer/Inner';
@@ -9,43 +9,50 @@ import DOPDImage from '@/app/components/Image/DOPDImage';
 import imagePath from '@/app/utils/imagePath';
 
 export default function Gallery() {
+    const allowedPath = ['beauty', 'motorsport', 'nature', 'skate', 'street'];
     const pathname = usePathname();
-    const title = pathname.split('/')[2];
+    const titleLowercase = pathname.split('/')[2];
+    const titleCapitalized = titleLowercase.charAt(0).toUpperCase() + titleLowercase.slice(1);
+
+    if (!allowedPath.includes(titleLowercase)) {
+        notFound();
+    }
+
     const heroImage: ImageObject = {
-        imageName: `${title}.jpg`,
-        alt: `${title} - Hero Image`,
+        imageName: `${titleLowercase}.jpg`,
+        alt: `${titleLowercase} - Hero Image`,
         width: 1000,
         height: 500,
     };
     const contentImages: ImageObject[] = [
         {
-            imageName: `${title}1.jpg`,
-            alt: `${title} - Image 1`,
+            imageName: `${titleLowercase}1.jpg`,
+            alt: `${titleCapitalized} - Image 1`,
             width: 500,
             height: 500,
         },
         {
-            imageName: `${title}2.jpg`,
-            alt: `${title} - Image 2`,
+            imageName: `${titleLowercase}2.jpg`,
+            alt: `${titleCapitalized} - Image 2`,
             width: 500,
             height: 500,
         },
         {
-            imageName: `${title}3.jpg`,
-            alt: `${title} - Image 3`,
+            imageName: `${titleLowercase}3.jpg`,
+            alt: `${titleCapitalized} - Image 3`,
             width: 500,
             height: 500,
         },
         {
-            imageName: `${title}4.jpg`,
-            alt: `${title} - Image 4`,
+            imageName: `${titleLowercase}4.jpg`,
+            alt: `${titleCapitalized} - Image 4`,
             width: 500,
             height: 500,
         },
     ];
     return (
         <PageContainer>
-            <Hero headline={title.toUpperCase()} image={heroImage} />
+            <Hero headline={titleCapitalized} image={heroImage} />
             <Inner>
                 <ContentWrap>
                     {contentImages.map((image, index) => (
