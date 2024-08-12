@@ -6,9 +6,11 @@ const style = StyleX.create({
         display: 'grid',
         gridTemplateColumns: '1fr',
         '@media screen and (min-width: 768px)': {
-            gridTemplateColumns: '1fr 1fr',
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
         },
-        gap: '1rem',
+        gap: '1rem 1rem',
         margin: '1rem 0',
     },
 });

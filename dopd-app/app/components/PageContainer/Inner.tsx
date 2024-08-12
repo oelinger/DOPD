@@ -4,6 +4,8 @@ import * as StyleX from '@stylexjs/stylex';
 const style = StyleX.create({
     inner: {
         zIndex: 10,
+        display: 'flex',
+        flexDirection: 'column',
         maxWidth: '64rem',
         width: '100%',
         margin: 'auto',
@@ -14,6 +16,7 @@ const style = StyleX.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         fontSize: '3ch',
+        gap: '4rem',
     },
 });
 const Inner: React.FC<{ children: React.ReactNode }> = ({ children }) => {

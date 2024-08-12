@@ -9,9 +9,10 @@ const style = StyleX.create({
         alignItems: 'center',
         justifyContent: 'center',
         gap: '1rem',
-        margin: '1rem 0',
         fontWeight: '400',
         lineHeight: '1.5',
+        flex: '1 1 0',
+        minWidth: 'calc(33% - 2rem)',
     },
     clickable: {
         cursor: 'pointer',

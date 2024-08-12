@@ -7,7 +7,8 @@ const style = StyleX.create({
         width: '100%',
         height: '100%',
         zIndex: 1,
-        backdropFilter: 'brightness(0.75) blur(1px)',
+        backdropFilter: 'brightness(0.75) blur(0.5rem)',
+        '-webkit-backdropFilter': 'brightness(0.75) blur(0.5rem)',
     },
 });
 const Backdrop = () => {

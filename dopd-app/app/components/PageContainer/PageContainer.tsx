@@ -7,6 +7,7 @@ const style = StyleX.create({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        gap: '6rem',
         textAlign: 'center',
     },
     inner: {

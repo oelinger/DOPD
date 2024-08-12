@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image, { ImageProps } from 'next/image';
 
-interface DOPDImageProps extends ImageProps {}
+export interface DOPDImageProps extends ImageProps {}
 
 export default function DOPDImage(props: DOPDImageProps) {
     const fallbackSrc = '/images/placeholder.jpeg';

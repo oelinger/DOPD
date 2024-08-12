@@ -11,6 +11,7 @@ import Content from '@/app/components/Content/Content';
 import { useRouter } from 'next/navigation';
 import PageContainer from '@/app/components/PageContainer/PageContainer';
 import Inner from '@/app/components/PageContainer/Inner';
+import { getAllowedTopics, getCapitalizedTitlePerTopic } from '@/app/utils/galleryUtils';
 
 export const runtime = 'edge';
 
@@ -34,8 +35,8 @@ const style = StyleX.create({
     },
 });
 
-const maintenance: boolean = process.env.NODE_ENV === 'production';
-// const maintenance: boolean = false;
+// const maintenance: boolean = process.env.NODE_ENV === 'production';
+const maintenance: boolean = false;
 
 const heroImage: ImageObject = {
     imageName: 'placeholder.jpeg',
@@ -46,7 +47,21 @@ const heroImage: ImageObject = {
 
 export default function Home() {
     const router = useRouter();
-
+    const galleryTopics = getAllowedTopics();
+    const galleryContents = galleryTopics.map((topic, index) => {
+        const capitalizedTitle = getCapitalizedTitlePerTopic(topic);
+        return (
+            <Content key={index} onClick={() => router.push(`/gallery/${topic}`)}>
+                <DOPDImage
+                    src={imagePath(`${topic}.jpg`)}
+                    width={300}
+                    height={200}
+                    alt={`${capitalizedTitle} Gallery`}
+                />
+                <p>{capitalizedTitle}</p>
+            </Content>
+        );
+    });
     return (
         <div>
             {maintenance ? (
@@ -66,7 +81,7 @@ export default function Home() {
                         image={heroImage}
                         headline='Willkommen bei D.O.P.D.'
                         content={
-                            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
                                 D.O.P.D. steht für&nbsp;
                                 <Typewriter
                                     options={{
@@ -81,30 +96,13 @@ export default function Home() {
                         }
                     />
                     <Inner>
-                        <div>
-                            <ContentWrap>
-                                <Content onClick={() => router.push('/gallery/motorsport')}>
-                                    <DOPDImage
-                                        src={imagePath('motorsport.jpg')}
-                                        width={500}
-                                        height={200}
-                                        alt={'Motorsport Gallery'}
-                                    />
-                                    <i className={'bi bi-tsunami'} />
-                                    <p>Nature</p>
-                                </Content>
-                                <Content onClick={() => router.push('/gallery/architecture')}>
-                                    <DOPDImage
-                                        src={imagePath('architecture.jpeg')}
-                                        width='500'
-                                        height='200'
-                                        alt={'Architecture Gallery'}
-                                    />
-                                    <i className={'bi bi-building'} />
-                                    <p>Urban</p>
-                                </Content>
-                            </ContentWrap>
-                        </div>
+                        <section>
+                            <h2>Photographie Gallerie</h2>
+                            <ContentWrap>{galleryContents}</ContentWrap>
+                        </section>
+                        {/*<section>*/}
+                        {/*    <h2>Software und Design Portfolio</h2>*/}
+                        {/*</section>*/}
                     </Inner>
                 </PageContainer>
             )}

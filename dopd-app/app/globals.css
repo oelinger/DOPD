@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
@@ -41,6 +45,12 @@ body > div {
     flex: 1 1 0;
 }
 
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 h2 {
     font-size: 2.4rem;
     font-weight: 600;
@@ -60,4 +70,13 @@ p > a {
 
 p > a:hover {
     text-decoration: none;
+}
+
+img {
+    height: 100%;
+    width: auto;
+}
+
+.no-scroll {
+    overflow: hidden;
 }
