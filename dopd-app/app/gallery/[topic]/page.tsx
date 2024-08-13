@@ -89,6 +89,7 @@ export default function Gallery() {
             </Inner>
             {selectedImage && !isMobile() && (
                 <ImageDialog
+                    key={selectedImage.imageName} // Force re-render when selectedImage changes
                     isOpen={isDialogOpen}
                     image={{
                         src: imagePath(selectedImage.imageName),
