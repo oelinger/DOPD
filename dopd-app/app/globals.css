@@ -73,8 +73,10 @@ p > a:hover {
 }
 
 img {
-    height: 100%;
-    width: auto;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: auto;
 }
 
 .no-scroll {
