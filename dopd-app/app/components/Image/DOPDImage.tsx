@@ -9,7 +9,9 @@ const style = StyleX.create({
         width: '100%',
         height: '100%',
         objectFit: 'cover',
+        '-webkit-object-fit': 'cover',
         objectPosition: 'center',
+        '-webkit-object-position': 'center',
     },
 });
 
