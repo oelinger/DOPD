@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import * as StyleX from '@stylexjs/stylex';
 import DOPDImage from '@/app/components/Image/DOPDImage';
 import imagePath from '@/app/utils/imagePath';
@@ -55,9 +55,14 @@ const style = StyleX.create({
     },
 });
 
-export default function Hero(props: { image: ImageObject; content?: React.JSX.Element; headline: string }) {
+export default function Hero(props: {
+    image: ImageObject;
+    content?: React.JSX.Element;
+    headline: string;
+    style?: CSSProperties | undefined;
+}) {
     return (
-        <div {...StyleX.props(style.hero)}>
+        <div style={props.style} {...StyleX.props(style.hero)}>
             <div {...StyleX.props(style.content)}>
                 <h1 {...StyleX.props(style.headline)}>{props.headline}</h1>
                 {props.content}

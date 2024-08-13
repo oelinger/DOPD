@@ -78,6 +78,7 @@ export default function Home() {
             ) : (
                 <PageContainer>
                     <Hero
+                        style={{ marginBottom: '6rem' }}
                         image={heroImage}
                         headline='Willkommen bei D.O.P.D.'
                         content={
@@ -96,7 +97,7 @@ export default function Home() {
                         }
                     />
                     <Inner>
-                        <section>
+                        <section id={'Gallery'}>
                             <h2>Photographie Gallerie</h2>
                             <ContentWrap>{galleryContents}</ContentWrap>
                         </section>
