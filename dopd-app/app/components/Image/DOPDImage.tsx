@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import Image, { ImageProps } from 'next/image';
+import * as StyleX from '@stylexjs/stylex';
 
 export interface DOPDImageProps extends ImageProps {}
+
+const style = StyleX.create({
+    image: {
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        objectPosition: 'center',
+    },
+});
 
 export default function DOPDImage(props: DOPDImageProps) {
     const fallbackSrc = '/images/placeholder.jpeg';
@@ -11,6 +21,5 @@ export default function DOPDImage(props: DOPDImageProps) {
         setSrc(fallbackSrc);
     };
 
-    // eslint-disable-next-line jsx-a11y/alt-text
-    return <Image {...props} src={src} onError={handleError}></Image>;
+    return <Image {...StyleX.props(style.image)} {...props} src={src} onError={handleError}></Image>;
 }

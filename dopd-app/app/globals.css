@@ -72,13 +72,6 @@ p > a:hover {
     text-decoration: none;
 }
 
-img {
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    height: auto;
-}
-
 .no-scroll {
     overflow: hidden;
 }
