@@ -39,7 +39,7 @@ const style = StyleX.create({
 const maintenance: boolean = false;
 
 const heroImage: ImageObject = {
-    imageName: 'placeholder.jpeg',
+    imageName: 'hero.jpg',
     alt: 'D.O.P.D. - Hero Image',
     width: 1000,
     height: 500,
