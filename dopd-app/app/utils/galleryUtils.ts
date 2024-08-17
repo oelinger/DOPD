@@ -1,7 +1,7 @@
 import { ImageObject } from '@/app/components/Hero/Hero';
 
 export function getAllowedTopics() {
-    return ['beauty', 'motorsport', 'nature', 'skate', 'street', 'travel'];
+    return ['analog', 'beauty', 'motorsport', 'nature', 'street', 'travel'];
 }
 
 export function getCapitalizedTitlePerTopic(topic: string): string {
