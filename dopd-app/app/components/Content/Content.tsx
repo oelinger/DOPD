@@ -18,9 +18,13 @@ const style = StyleX.create({
         cursor: 'pointer',
     },
 });
-const Content: React.FC<{ children: React.ReactNode; onClick?: () => void }> = ({ children, onClick }) => {
+const Content: React.FC<{ children: React.ReactNode; onClick?: () => void; styleX?: StyleX.StyleXStyles }> = ({
+    children,
+    onClick,
+    styleX,
+}) => {
     return (
-        <div {...StyleX.props(style.content, onClick ? style.clickable : null)} onClick={onClick}>
+        <div {...StyleX.props(style.content, onClick ? style.clickable : null, styleX ?? styleX)} onClick={onClick}>
             {children}
         </div>
     );

@@ -14,8 +14,8 @@ const style = StyleX.create({
         margin: '1rem 0',
     },
 });
-const ContentWrap: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    return <div {...StyleX.props(style.contentWrap)}>{children}</div>;
+const ContentWrap: React.FC<{ children: React.ReactNode; styleX?: StyleX.StyleXStyles }> = ({ children, styleX }) => {
+    return <div {...StyleX.props(style.contentWrap, styleX ?? styleX)}>{children}</div>;
 };
 
 export default ContentWrap;
