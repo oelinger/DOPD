@@ -28,7 +28,7 @@ app.use('/api/proxy', async (req, res) => {
             res.setHeader('Content-Type', response.headers['content-type']);
             res.send(Buffer.from(response.data, 'binary'));
         } else {
-            // For other requests, send JSON data
+            // For other requests, send JSON csv-to-json
             res.status(response.status).json(response.data);
         }
     } catch (error) {

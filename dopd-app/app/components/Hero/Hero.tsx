@@ -56,9 +56,9 @@ const style = StyleX.create({
 });
 
 export default function Hero(props: {
-    image: ImageObject;
-    content?: React.JSX.Element;
     headline: string;
+    image?: ImageObject;
+    content?: React.JSX.Element;
     style?: CSSProperties | undefined;
 }) {
     return (
@@ -67,14 +67,18 @@ export default function Hero(props: {
                 <h1 {...StyleX.props(style.headline)}>{props.headline}</h1>
                 {props.content}
             </div>
-            <DOPDImage
-                {...StyleX.props(style.background)}
-                src={imagePath(props.image.imageName)}
-                alt={props.image.alt}
-                width={props.image.width}
-                height={props.image.height}
-            />
-            <Backdrop />
+            {props.image && (
+                <>
+                    <DOPDImage
+                        {...StyleX.props(style.background)}
+                        src={imagePath(props.image.imageName)}
+                        alt={props.image.alt}
+                        width={props.image.width}
+                        height={props.image.height}
+                    />
+                    <Backdrop />
+                </>
+            )}
         </div>
     );
 }
