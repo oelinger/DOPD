@@ -6,8 +6,6 @@ import DOPDImage from '@/app/components/Image/DOPDImage';
 import imagePath from '@/app/utils/imagePath';
 import Backdrop from '@/app/components/Backdrop/Backdrop';
 
-export const runtime = 'edge';
-
 export interface ImageObject {
     imageName: string;
     alt: string;

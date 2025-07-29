@@ -1,33 +1,7 @@
 'use client';
-import * as StyleX from '@stylexjs/stylex';
-import { Link } from '@nextui-org/link';
+import { Link } from '@heroui/link';
 import { usePathname } from 'next/navigation';
-
-export const runtime = 'edge';
-
-const style = StyleX.create({
-    footer: {
-        backgroundColor: 'transparent',
-        height: '3rem',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '0.5rem',
-    },
-    link: {
-        color: {
-            default: '#000',
-            '@media (prefers-color-scheme: dark)': '#fff',
-        },
-        textDecoration: {
-            default: 'none',
-            ':hover': 'underline',
-        },
-    },
-    active: {
-        display: 'none',
-    },
-});
+import './Footer.css';
 
 export default function Footer() {
     const pathname = usePathname();
@@ -35,11 +9,11 @@ export default function Footer() {
     const privacyPath = '/privacy';
 
     return (
-        <footer {...StyleX.props(style.footer)}>
-            <Link href={imprintPath} {...StyleX.props(style.link, pathname === imprintPath ? style.active : null)}>
+        <footer className='footer'>
+            <Link href={imprintPath} className={`footer-link ${pathname === imprintPath ? 'active' : ''}`}>
                 Impressum
             </Link>
-            <Link href={privacyPath} {...StyleX.props(style.link, pathname === privacyPath ? style.active : null)}>
+            <Link href={privacyPath} className={`footer-link ${pathname === privacyPath ? 'active' : ''}`}>
                 Datenschutz
             </Link>
         </footer>

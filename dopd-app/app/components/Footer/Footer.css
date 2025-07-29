@@ -1,0 +1,27 @@
+.footer {
+    background-color: transparent;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.footer-link {
+    color: #000;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-link.active {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .footer-link {
+        color: #fff;
+    }
+}

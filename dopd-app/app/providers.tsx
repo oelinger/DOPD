@@ -1,13 +1,7 @@
-'use client'
+'use client';
 
-import {NextUIProvider} from '@nextui-org/react'
+import { HeroUIProvider } from '@heroui/react';
 
-export const runtime = 'edge';
-
-export function Providers({children}: { children: React.ReactNode }) {
-    return (
-            <NextUIProvider>
-                {children}
-            </NextUIProvider>
-    )
+export function Providers({ children }: { children: React.ReactNode }) {
+    return <HeroUIProvider>{children}</HeroUIProvider>;
 }

@@ -3,8 +3,6 @@ import * as StyleX from '@stylexjs/stylex';
 import imagePath from '@/app/utils/imagePath';
 import DOPDImage from '@/app/components/Image/DOPDImage';
 
-export const runtime = 'edge';
-
 const style = StyleX.create({
     logo: {
         width: '100%',

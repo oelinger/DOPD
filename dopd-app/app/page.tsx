@@ -13,8 +13,6 @@ import PageContainer from '@/app/components/PageContainer/PageContainer';
 import Inner from '@/app/components/PageContainer/Inner';
 import { getAllowedTopics, getCapitalizedTitlePerTopic } from '@/app/utils/galleryUtils';
 
-export const runtime = 'edge';
-
 const style = StyleX.create({
     icon: {
         fontSize: '8ch',

@@ -4,8 +4,6 @@ import PageContainer from '@/app/components/PageContainer/PageContainer';
 import Inner from '@/app/components/PageContainer/Inner';
 import Content from '@/app/components/Content/Content';
 
-export const runtime = 'edge';
-
 const style = StyleX.create({
     headline: {
         fontSize: '3.5ch',

@@ -23,5 +23,5 @@ export default function DOPDImage(props: DOPDImageProps) {
         setSrc(fallbackSrc);
     };
 
-    return <Image {...StyleX.props(style.image)} {...props} src={src} onError={handleError}></Image>;
+    return <Image {...StyleX.props(style.image)} {...props} src={src} alt={props.alt} onError={handleError}></Image>;
 }
