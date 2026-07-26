@@ -6,13 +6,14 @@ const net = require('net');
 
 const app = express();
 const port = process.env.PORT || 3001;
-const allowedProxyHosts = new Set((process.env.ALLOWED_PROXY_HOSTS || 'r2.oelinger.at').split(',').map((host) => host.trim()).filter(Boolean));
+const allowedProxyHosts = new Set((process.env.ALLOWED_PROXY_HOSTS || 'r2.oelinger.at').split(',').map((host) => host.trim().toLowerCase()).filter(Boolean));
 const allowedMethods = new Set(['get', 'head', 'post', 'put', 'patch', 'delete']);
 
 app.use(express.json({ limit: '1mb' }));
 
 const isPrivateIp = (hostname) => {
-    if (!net.isIP(hostname)) {
+    const ipVersion = net.isIP(hostname);
+    if (!ipVersion) {
         return false;
     }
 
@@ -20,10 +21,23 @@ const isPrivateIp = (hostname) => {
         return true;
     }
 
-    return hostname.startsWith('10.') ||
+    if (ipVersion === 6) {
+        const normalized = hostname.toLowerCase();
+        return normalized.startsWith('fc') ||
+            normalized.startsWith('fd') ||
+            /^fe[89ab]/.test(normalized);
+    }
+
+    return hostname.startsWith('0.') ||
+        hostname.startsWith('10.') ||
+        /^100\.(6[4-9]|[7-9]\d|1[01]\d|12[0-7])\./.test(hostname) ||
         hostname.startsWith('192.168.') ||
         /^172\.(1[6-9]|2\d|3[0-1])\./.test(hostname) ||
-        hostname.startsWith('169.254.');
+        hostname.startsWith('169.254.') ||
+        /^22[4-9]\./.test(hostname) ||
+        /^23\d\./.test(hostname) ||
+        /^24\d\./.test(hostname) ||
+        /^25[0-5]\./.test(hostname);
 };
 
 app.use('/api/proxy', async (req, res) => {
@@ -34,13 +48,23 @@ app.use('/api/proxy', async (req, res) => {
 
         const { url, method, headers, data } = req.body;
         const targetUrl = new URL(url);
+        const targetHostname = targetUrl.hostname.toLowerCase();
         const proxyMethod = String(method || 'get').toLowerCase();
 
-        if (!['http:', 'https:'].includes(targetUrl.protocol)) {
+        if (targetUrl.protocol !== 'https:') {
             return res.status(400).json({ error: 'Unsupported protocol' });
         }
 
-        if (isPrivateIp(targetUrl.hostname) || !allowedProxyHosts.has(targetUrl.hostname)) {
+        if (targetUrl.port && targetUrl.port !== '443') {
+            return res.status(400).json({ error: 'Unsupported port' });
+        }
+
+        if (isPrivateIp(targetHostname) || !allowedProxyHosts.has(targetHostname)) {
+            return res.status(403).json({ error: 'Forbidden host' });
+        }
+
+        const safeHostname = Array.from(allowedProxyHosts).find((host) => host === targetHostname);
+        if (!safeHostname) {
             return res.status(403).json({ error: 'Forbidden host' });
         }
 
@@ -52,7 +76,7 @@ app.use('/api/proxy', async (req, res) => {
         if (headers && typeof headers === 'object') {
             for (const [key, value] of Object.entries(headers)) {
                 const lowerKey = key.toLowerCase();
-                if (['content-type', 'accept'].includes(lowerKey)) {
+                if (['content-type', 'accept'].includes(lowerKey) && typeof value === 'string' && !/[\r\n]/.test(value)) {
                     forwardedHeaders[key] = value;
                 }
             }
@@ -61,9 +85,12 @@ app.use('/api/proxy', async (req, res) => {
         // Check if the request is for an image
         const isImageRequest = /\.(jpg|jpeg|png|gif|webp)$/i.test(path.extname(targetUrl.pathname));
 
+        const safeOrigin = `https://${safeHostname}`;
+        const safePath = `${targetUrl.pathname}${targetUrl.search}`;
         const response = await axios({
             method: proxyMethod,
-            url: targetUrl.toString(),
+            baseURL: safeOrigin,
+            url: safePath,
             headers: forwardedHeaders,
             data,
             responseType: isImageRequest ? 'arraybuffer' : 'json', // Set response type based on content type
