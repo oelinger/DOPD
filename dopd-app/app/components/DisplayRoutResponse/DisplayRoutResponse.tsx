@@ -12,12 +12,13 @@ export default function DisplayRoutResponse() {
         })
 
         fetch(request).then((res) => {
-            console.log(res)
             return res.text()
         }).then((text) => {
             setResponse(text)
+        }).catch(() => {
+            setResponse('Failed to load response')
         })
-    })
+    }, [])
 
 
     return (
