@@ -6,8 +6,10 @@ const net = require('net');
 
 const app = express();
 const port = process.env.PORT || 3001;
-const allowedProxyHosts = new Set((process.env.ALLOWED_PROXY_HOSTS || 'r2.oelinger.at').split(',').map((host) => host.trim().toLowerCase()).filter(Boolean));
-const allowedMethods = new Set(['get', 'head', 'post', 'put', 'patch', 'delete']);
+const allowedMethods = new Set(['get', 'head']);
+const proxyTargets = {
+    default: new URL(process.env.ALLOWED_PROXY_URL || 'https://r2.oelinger.at/'),
+};
 
 app.use(express.json({ limit: '1mb' }));
 
@@ -42,25 +44,16 @@ const isRestrictedIp = (hostname) => {
 
 app.use('/api/proxy', async (req, res) => {
     try {
-        if (!req.body || typeof req.body.url !== 'string') {
-            return res.status(400).json({ error: 'Invalid request body' });
+        const { target = 'default', method, headers } = req.body || {};
+        const targetUrl = proxyTargets[target];
+        if (!targetUrl) {
+            return res.status(400).json({ error: 'Invalid proxy target' });
         }
 
-        const { url, method, headers, data } = req.body;
-        const targetUrl = new URL(url);
         const targetHostname = targetUrl.hostname.toLowerCase();
         const proxyMethod = String(method || 'get').toLowerCase();
 
-        if (targetUrl.protocol !== 'https:') {
-            return res.status(400).json({ error: 'Unsupported protocol' });
-        }
-
-        if (targetUrl.port && targetUrl.port !== '443') {
-            return res.status(400).json({ error: 'Unsupported port' });
-        }
-
-        const safeHostname = Array.from(allowedProxyHosts).find((host) => host === targetHostname);
-        if (isRestrictedIp(targetHostname) || !safeHostname) {
+        if (isRestrictedIp(targetHostname)) {
             return res.status(403).json({ error: 'Forbidden host' });
         }
 
@@ -81,14 +74,13 @@ app.use('/api/proxy', async (req, res) => {
         // Check if the request is for an image
         const isImageRequest = /\.(jpg|jpeg|png|gif|webp)$/i.test(path.extname(targetUrl.pathname));
 
-        const safeOrigin = `https://${safeHostname}`;
+        const safeOrigin = targetUrl.origin;
         const safePath = `${targetUrl.pathname}${targetUrl.search}`;
         const response = await axios({
             method: proxyMethod,
             baseURL: safeOrigin,
             url: safePath,
             headers: forwardedHeaders,
-            data,
             responseType: isImageRequest ? 'arraybuffer' : 'json', // Set response type based on content type
             timeout: 8000,
             maxContentLength: 10 * 1024 * 1024,
@@ -103,10 +95,6 @@ app.use('/api/proxy', async (req, res) => {
             res.status(response.status).json(response.data);
         }
     } catch (error) {
-        if (error instanceof TypeError) {
-            return res.status(400).json({ error: 'Invalid URL' });
-        }
-
         if (axios.isAxiosError(error) && error.response) {
             return res.status(error.response.status).json(error.response.data);
         }
