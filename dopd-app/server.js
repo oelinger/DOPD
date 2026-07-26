@@ -11,7 +11,7 @@ const allowedMethods = new Set(['get', 'head', 'post', 'put', 'patch', 'delete']
 
 app.use(express.json({ limit: '1mb' }));
 
-const isPrivateIp = (hostname) => {
+const isRestrictedIp = (hostname) => {
     const ipVersion = net.isIP(hostname);
     if (!ipVersion) {
         return false;
@@ -59,12 +59,8 @@ app.use('/api/proxy', async (req, res) => {
             return res.status(400).json({ error: 'Unsupported port' });
         }
 
-        if (isPrivateIp(targetHostname) || !allowedProxyHosts.has(targetHostname)) {
-            return res.status(403).json({ error: 'Forbidden host' });
-        }
-
         const safeHostname = Array.from(allowedProxyHosts).find((host) => host === targetHostname);
-        if (!safeHostname) {
+        if (isRestrictedIp(targetHostname) || !safeHostname) {
             return res.status(403).json({ error: 'Forbidden host' });
         }
 
